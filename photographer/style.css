@@ -1,0 +1,312 @@
+
+
+
+
+
+/* General Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+  background-color: #222;
+  color: #fff;
+  padding: 5px 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Hero Section Styles */
+#hero {
+  background-image: url(https://via.placeholder.com/1200x600.png?text=Hero+Image);
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hero h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#hero p {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #333;
+}
+
+.btn:hover{
+  color: green;
+}
+
+.btn-primary {
+  background-color: #ff5e3a;
+}
+
+.btn ul li a{
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+
+}
+.btn ul li a:hover{
+  color: yellow;
+}
+
+/* Services Section Styles */
+#services {
+  padding: 80px 0;
+}
+
+#services h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.service-item img {
+  margin-bottom: 20px;
+}
+
+.service-item h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.service-item p {
+  font-size: 18px;
+}
+
+/* Gallery Section Styles */
+#gallery {
+  padding: 80px 0;
+}
+
+#gallery h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.gallery-item {
+  margin-bottom: 20px;
+}
+
+.gallery-item img {
+  width: 100%;
+}
+/* Footer section */
+
+footer {
+  background-color: #222;
+  color: #fff;
+  padding: 50px 0;
+}
+
+footer h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+footer p {
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 30px;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer ul li {
+  margin-bottom: 10px;
+}
+
+footer ul li a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+footer ul li a:hover {
+  color: #f00;
+}
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 20px;
+  margin-right: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  color: #f00;
+}
+
+.copy {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.copy p {
+  font-size: 12px;
+  line-height: 24px;
+  margin: 0;
+}
+/* Form container */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Form */
+.form {
+  width: 400px;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.form h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+}
+
+.form-group input:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"] {
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.form-footer {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.form-footer span {
+  margin-right: 5px;
+}
+.form-footer a {
+  color: #4CAF50;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.form-footer a:hover {
+  color: #3e8e41;
+}
+
+.list{
+	float:left;
+	font-style:normal;
+	font-size:27px;
+	background-color:#efefef;
+	width:1080px;
+	height:40px;
+	text-decoration:none;
+}
+
+.list table tr td a{
+	display:inline;
+	text-decoration:none;
+}
+  
+
