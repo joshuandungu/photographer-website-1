@@ -1,12 +1,13 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Gallery</title>
+    <title>Photographer Gallery</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Add your custom styles here -->
     <style>
         body {
             background-color: #f8f9fa;
@@ -20,33 +21,31 @@
             text-align: center;
         }
 
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
-
         section {
             padding: 40px 0;
             text-align: center;
         }
 
+        .photographer-details {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #fff;
+        }
+
         .gallery {
+            max-width: 800px;
+            margin: 20px auto;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            grid-gap: 10px;
-            margin: 20px;
+            gap: 20px;
         }
 
         .gallery img {
             width: 100%;
-            height: auto;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.1);
         }
 
         footer {
@@ -59,27 +58,41 @@
 </head>
 
 <body>
+
     <header>
-        <?php include ('includes/header.php');?>
+    <?php include('includes/header.php'); ?>
     </header>
 
-
-    <?php 
+    <?php
 require_once('includes/config.php');
-$sql = mysqli_query($conn, "SELECT * FROM portfolio");
+
+// Assuming you have the photographer's ID from the session or URL parameter
+if(isset($_SESSION['userid'])){
+    $photographerId = $_SESSION['userid'];
+
+    // Fetch photographer details
+    $query = mysqli_query($conn, "SELECT * FROM portfolio WHERE photographer_name = '$photographerId'");
 ?>
 
 <section>
     <div class="container">
-        <div class="gallery">
-            <?php while($row = mysqli_fetch_assoc($sql)) { ?>
-                <!-- Example gallery images, replace with dynamic content from your database -->
-                <img src="../photographer/portfolio/<?php echo $row['file_path'];?>" alt="Photo 1">
-                <!-- Add more images as needed -->
-            <?php } ?>
+        <div class="photographer-details">
+            <div class="gallery">
+                <?php
+                while($row = mysqli_fetch_assoc($query)) {
+                    ?>
+                    <img src="portfolio/<?php echo $row['file_path'];?>" width="100px" height="100px" alt="image">
+                    <?php
+                }
+                ?>
+            </div>
         </div>
     </div>
 </section>
 
+<?php } ?>
 
-    <?php include ('includes/footer.php');?>
+    <?php include('includes/footer.php'); ?>
+</body>
+
+</html>

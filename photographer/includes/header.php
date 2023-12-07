@@ -1,4 +1,8 @@
-
+<?php 
+if(!isset($_SESSION['userid'])){
+    header('location:login.php');
+}
+?>
 
 
 <!DOCTYPE html>
@@ -31,23 +35,21 @@
                         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.php">About</a>
+                        <a class="nav-link" href="create-gallery.php">Create Gallery</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="photographer-gallery.php">My Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="photographers.php">Photographers</a>
+                        <a class="nav-link" href="photographer-booking.php">My Bookings</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="gallery.php">Gallery</a>
+                        <a class="nav-link" href="photographer-account.php">Photo Account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="view-booking.php">Bookings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="user-account.php"><?php echo $_SESSION['userid']; ?>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../photographer/start-selling.php">Start Selling</a>
+                       <p> <a class="nav-link" href="my-account.php<?php echo $_SESSION['userid']; ?>">
+                        </a></p>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.php">Contact</a>
@@ -60,25 +62,9 @@
                 
              <?php if (!isset($_SESSION['userid'])) {?>
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.php">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="photographers.php">Photographers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery.php">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="signup.php">Signup</a>
+                        <a class="nav-link" href="../index.php">Home <span class="sr-only">(current)</span></a>
+                   
+                        <a class="nav-link" href="start-selling.php.php">Create Account</a>
                     </li>
                     
                 <?php } ?>

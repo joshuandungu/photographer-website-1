@@ -1,36 +1,85 @@
- <?php include_once('header.php');?>
+<!DOCTYPE html>
+<html lang="en">
 
- <body>
-    <center>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photographer Admin Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add your custom styles here -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
 
-<form class="" action="insert.php" method="POST"  enctype="multipart/form-data"> 
-    <div class=" col-4 p-2 border m-2">
-    <h1>Fill in the form below</h1>
-    <h2>Photographer Full Name</h2>
-    <input type="text" name="name" class="form-control" placeholder="Photographer full name"  rquired ><br><br>
-    <h2>EMAIL</h2>
-    <input type="email" name="email" class="form-control" placeholder="Email"  required><br><br>
-    <h2>PHONE NUMBER</h2>
-    <input type="phonenumber" name="phone_number" class="form-control" placeholder="Phone number" required  ><br><br>
-    <h2>DATE OF BIRTH</h2>
-    <input type="DATE" name="DOB" class="form-control" placeholder="Date Of Birth" required ><br><br>
-    <h2>TYPE OF PHOTOGRAPHER</h2>
-    <input type="text" name="type" class="form-control" placeholder="Indicate what kind of photographer you are"  required><br>
-    <h2>MORE DETAILS</h2>
-    <input type="textarea" name="description" class="form-control" placeholder="Give more information about yourself" required ><br><br>
-    <h2>upload your image</h2>
-    <input type="file" name="image_upload"  accept="image/*" class="form-control"  required value="" /> <br>
-    <button class="btn btn-primary w-100">Upload</button>
-    </div>
-</form>
-<a href="display.php"> See the uploaded images</a>
-</center> 
+        header {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 80px 0;
+            text-align: center;
+        }
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        section {
+            padding: 40px 0;
+            text-align: center;
+        }
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+        .dashboard-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-<?php include_once('footer.php');?>
+        .card {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <?php include ('includes/header.php');?>
+    </header>
+
+    <section>
+        <div class="dashboard-content">
+            <div class="card">
+                <div class="card-header">
+                    Photographer Management
+                </div>
+                <div class="card-body">
+                    <a href="photographers.php" class="btn btn-primary">View Photographers</a>
+                    <a href="add_photographer.php" class="btn btn-success">Add Photographer</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Booking Management
+                </div>
+                <div class="card-body">
+                    <a href="bookings.php" class="btn btn-primary">View Bookings</a>
+                </div>
+            </div>
+
+            <!-- Add more cards for other functionalities -->
+
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2023 Photographer Admin
+    </footer
+

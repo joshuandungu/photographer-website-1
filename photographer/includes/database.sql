@@ -33,19 +33,3 @@ CREATE TABLE portfolio (
     file_path VARCHAR (500) NOT NULL,
     description LONGTEXT NOT NULL
 );
-
-CREATE TABLE bookings(
-    book_id INT(500)  PRIMARY KEY NOT NULL,
-    client_name VARCHAR(250) NOT NULL,
-    client_email VARCHAR(250) NOT NULL,
-    client_gender VARCHAR(250) NOT NULL,
-    client_phone VARCHAR(250) NOT NULL,
-    client_address VARCHAR(250) NOT NULL,
-    photographer_name VARCHAR(250) NOT NULL,
-    photographer_email VARCHAR (250) NOT NULL,
-    photographer_gender VARCHAR(250) NOT NULL,
-    photographer_phone VARCHAR(250) NOT NULL,
-    photographer_address VARCHAR(250) NOT NULL,
-    package VARCHAR(250) NOT NULL
-
-);

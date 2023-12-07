@@ -1,3 +1,14 @@
+<?php
+session_start();
+include('includes/config.php');
+
+if (!isset($_SESSION['userid'])) {
+    header('location: start_selling.php');
+    exit();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,10 +45,7 @@
             margin: 0 auto;
         }
 
-        .photographer-list {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
+        .photographer-gallery {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -73,45 +81,59 @@
 <body>
 
     <header>
-    <?php include ('includes/header.php');?>
+        <?php include('includes/header.php'); ?>
     </header>
 
     <section>
         <div class="container search-container">
-            <form>
+            <form action="" method="GET">
                 <div class="form-group">
                     <label for="search">Search for Photographers</label>
-                    <input type="text" class="form-control" id="search" placeholder="Enter location or photographer name">
+                    <input type="text" name="search" class="form-control" id="search" placeholder="Enter location or photographer name">
                 </div>
                 <button type="submit" class="btn btn-primary">Search</button>
             </form>
         </div>
     </section>
-
     <section>
-        <div class="container">
-            <h2>Photographer List</h2>
-            <ul class="photographer-list">
-                <!-- Example photographers, replace with dynamic content from your database -->
-                <li class="photographer">
-                    <h3>Photographer 1</h3>
-                    <p>Location: City A</p>
-                    <button class="btn btn-success">Book Now</button>
-                </li>
-                <li class="photographer">
-                    <h3>Photographer 2</h3>
-                    <p>Location: City B</p>
-                    <button class="btn btn-success">Book Now</button>
-                </li>
-                <!-- Add more photographers as needed -->
-            </ul>
+    <div class="container">
+        <h2>Photographer Gallery</h2>
+        <div class="photographer-gallery">
+            <?php
+            require_once('includes/config.php');
+            if (isset($_GET['search'])) {
+                $searchdata = $_GET['search'];
+                $sql = mysqli_query($conn, "SELECT * FROM photographer  WHERE (firstname LIKE '%$searchdata%' OR lastname LIKE '%$searchdata%' OR email LIKE '%$searchdata%'  OR username LIKE '%$searchdata%' OR gender LIKE '%$searchdata%' OR phone LIKE '%$searchdata%' OR address LIKE '%$searchdata%' OR photographer LIKE '%$searchdata%' OR package LIKE '%$searchdata%')");
+            } else {
+                $sql = mysqli_query($conn, "SELECT * FROM photographer ");
+            }
+
+            if (mysqli_num_rows($sql) > 0) {
+                while ($row = mysqli_fetch_assoc($sql)) {
+                    $photographer = $row['firstname'] . ' ' . $row['lastname'];
+            ?>
+                    <div class="photographer">
+                        <img src="<?php echo $photographer; ?>">
+                        <h3><?php echo $row['firstname'] . ' ' . $row['lastname']; ?></h3>
+                        <p>Category: <?php echo $row['photographer']; ?></p>
+                        <p>Location: <?php echo $row['address']; ?></p>
+                        <button class="btn btn-success"><a href="view-photographer.php?viewid=<?php echo $row['id']; ?>">View More</a></button>
+                    </div>
+            <?php
+                }
+            } else {
+                echo "<h3 style='color:red;'>Photographer with the above search results is not found.</h3>";
+            }
+            ?>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <section>
         <div class="container">
             <h2>Book Now</h2>
-            <div class="booking-form">
+            <!-- <div class="booking-form">
                 <form>
                     <div class="form-group">
                         <label for="name">Your Name</label>
@@ -132,8 +154,11 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Book Now</button>
                 </form>
-            </div>
+            </div> -->
         </div>
     </section>
 
-    <?php include ('includes/footer.php');?>
+    <?php include('includes/footer.php'); ?>
+</body>
+
+</html>

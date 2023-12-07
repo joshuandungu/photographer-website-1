@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+    $sql = "SELECT * FROM photographer WHERE email='$email' ";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             session_start();
             $_SESSION['userid'] = $email;
             echo "<script>alert('Logged in Successfully');</script>";
-            header('location:index.php');
+            header('location:photographer-dashboard.php');
             exit();
         } else {
             echo "<script>alert('Invalid email or password. Please try again.');</script>";
@@ -98,8 +98,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
 
-   <header> <?php include ('includes/header.php');?></header>
    
+    <?php include ('includes/header.php');?>
 
 
     <section>
@@ -117,10 +117,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label for="email">Email address</label>
                     <input type="email" class="form-control" id="email" name= "email" aria-describedby="emailHelp"
                         placeholder="Enter email e.g johndoe$gmail.com"  required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password e.g !#$%^&hgU99"  required>
                 </div>
                 <button type="submit" value="submit" class="btn btn-primary">Login</button>
             </form>
